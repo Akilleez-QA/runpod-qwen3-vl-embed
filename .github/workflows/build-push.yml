@@ -33,5 +33,3 @@ jobs:
           tags: |
             ghcr.io/akilleez-qa/runpod-qwen3-vl-embed:latest
             ghcr.io/akilleez-qa/runpod-qwen3-vl-embed:v2.0.0
-            ghcr.io/akilleez-qa/runpod-worker-pooling:latest
-            ghcr.io/akilleez-qa/runpod-worker-pooling:v2.0.0-official
