@@ -18,8 +18,9 @@ RUN pip3 install --no-cache-dir \
     Pillow \
     sentencepiece
 
-# Flash Attention 2 (for speed)
-RUN pip3 install --no-cache-dir flash-attn --no-build-isolation
+# Flash Attention 2 — install pre-built wheel (no compile)
+RUN pip3 install --no-cache-dir flash-attn --no-build-isolation 2>/dev/null || \
+    echo "flash-attn not available, will use sdpa attention"
 
 # Clone official Qwen3-VL-Embedding repo
 RUN git clone https://github.com/QwenLM/Qwen3-VL-Embedding.git /app

@@ -25,10 +25,19 @@ def load_model():
     sys.path.insert(0, "/app")
     from scripts.qwen3_vl_embedding import Qwen3VLEmbedder
 
+    # Try flash_attention_2 first, fall back to sdpa
+    try:
+        import flash_attn  # noqa: F401
+        attn_impl = "flash_attention_2"
+    except ImportError:
+        attn_impl = "sdpa"
+
+    logger.info(f"Using attention implementation: {attn_impl}")
+
     embedder = Qwen3VLEmbedder(
         model_name_or_path=model_name,
         torch_dtype=torch.bfloat16,
-        attn_implementation="flash_attention_2",
+        attn_implementation=attn_impl,
     )
 
     logger.info("Model loaded successfully")
