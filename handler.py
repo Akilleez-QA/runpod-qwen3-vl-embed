@@ -23,7 +23,7 @@ def load_model():
 
     # Import the official embedder from the cloned repo
     sys.path.insert(0, "/app")
-    from scripts.qwen3_vl_embedding import Qwen3VLEmbedder
+    from src.models.qwen3_vl_embedding import Qwen3VLEmbedder
 
     # Try flash_attention_2 first, fall back to sdpa
     try:
