@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
 # PyTorch + transformers + flash-attn
 RUN pip3 install --no-cache-dir \
     torch>=2.6.0 \
+    torchvision>=0.21.0 \
     transformers>=4.51.0 \
     accelerate>=0.30.0 \
     qwen-vl-utils>=0.0.14 \
